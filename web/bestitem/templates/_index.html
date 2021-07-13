@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>BEBEDEPINO</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <script defer href="{% static 'js/jquery.js' %}"></script>
+    <script defer href="{% static 'js/bootstrap.min.js' %}"></script>
+    <script defer href="{% static 'js/custom.js' %}"></script>
+    <script defer href="{% static 'js/modernizr.custom.79639.js' %}"></script>
+</head>
+<body>
+<header></header>
+<main>
+    <section id="portfolio">
+        <div class="container">
+            <div class="row">
+                {% for deal in deals %}
+                <div class="col-md-4 col-sm-6">
+                    <a href="{{deal.link}}">
+                        <div class="portfolio-thumb">
+                            <img src="{{deal.thumb_url}}" class="img-responsive" alt="{{deal.thumb_url}}">
+                            <div class="dealimg"></div>
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-item">
+                                    <h3>{{deal.title}}</h3>
+                                    <small>{{deal.price}}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section id="ps-container" class="ps-container">
+{% for deal in deals %}
+
+			<div class="ps-contentwrapper">
+
+				<div class="ps-content">
+					<h2>Bernhard</h2>
+					<span class="ps-price">£100</span>
+					<p>With restful springiness in the seat; prevents static sitting and provides enhanced seating comfort. Padded seat and back for enhanced seating comfort. Soft, hardwearing and easy care leather, which ages gracefully.</p>
+					<a href="http://www.ikea.com/gb/en/catalog/products/80163804/#/60203882">Buy this item</a>
+				</div>
+
+			</div><!-- /ps-contentwrapper -->
+
+
+
+			<div class="ps-slidewrapper">
+
+				<div class="ps-slides">
+					<div style="background-image:url({{deal.thumb_url}});"></div>
+				</div>
+			     	<nav>
+					<a href="#" class="ps-prev" ></a>
+					<a href="#" class="ps-next" ></a>
+				</nav>
+			</div><!-- /ps-slidewrapper -->
+{% endfor %}
+		</section><!-- /ps-container -->
+
+</main>
+<footer></footer>
+<script defer href="{% static 'js/slider.js' %}"></script>
+</body>
+</html>
